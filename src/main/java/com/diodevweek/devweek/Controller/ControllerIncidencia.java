@@ -21,7 +21,7 @@ public class ControllerIncidencia {
         this.ocRepository = ocRepository;
     }
 
-    @GetMapping("/ocorrencias")
+    @GetMapping("/incidencias")
     public ResponseEntity<List<IncidenciaExame>> findOcorrencias(){
         List<IncidenciaExame> listaOcorrencia = ocRepository.findAll();
         if (listaOcorrencia.isEmpty())
@@ -29,7 +29,7 @@ public class ControllerIncidencia {
         return new ResponseEntity<>(listaOcorrencia, HttpStatus.OK);
     }
 
-    @GetMapping("/ocorrencia/{id}")
+    @GetMapping("/incidencias/{id}")
     public ResponseEntity<IncidenciaExame> findOcorrenciasById(@PathVariable Long id){
         Optional<IncidenciaExame> ocorrenciaOptional = ocRepository.findById(id);
         if (ocorrenciaOptional.isPresent()){
